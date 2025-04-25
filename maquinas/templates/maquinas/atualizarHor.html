@@ -1,0 +1,142 @@
+{% extends "maquinas/nav.html" %}
+
+
+{% load static %}
+
+{% block content %}
+
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gerenciamento de Maquinas</title>
+        <link rel="stylesheet" href="{% static 'css/atualizarHor.css' %}">
+    </head>
+    <body>  
+        
+
+        <div class="titulos">
+
+            {%  if mensagem %}
+                <p class="mensagem">{{mensagem}}</p>
+            {% endif %}
+
+            {% if faltam2 > 0 %}
+                <p class="faltam">Faltam: {{faltam2}}hr para a preventiva de {{h2}} horas</p>
+            {%else%}
+                <p class="passou">Passaram: {{passou2}} horas para preventiva de {{h2}}</p>
+            {% endif %}
+            
+            {% if faltam > 0 %}
+                <p class="faltam">Faltam: {{faltam}}hr para preventiva de {{h1}} horas</p>
+            {%else%}
+                <p class="passou">Passaram: {{passou}} horas para preventiva de {{h1}}</p>
+        
+            {% endif %}
+        </div>
+
+
+        <form action="{% url 'atualizarHor' id_maq.id%}" method="post">
+            <p class="maquina">{{id_maq}}</p>
+
+            {% csrf_token %}
+            {{form.as_p}}
+            <button name="submit">Salvar</button>
+
+        </form>
+        <button id="toggleFormButton">Adicionar Relatorio</button> 
+        
+        <hr>
+        <h2>Relatorios</h2>
+        <hr>
+
+        <div id="prevFormContainer" style="display: none;">
+            <form method="post" action="{% url 'atualizarHor' id_maq.id%}">
+                {% csrf_token %}
+                {{prev_form.as_p}}
+                <input type="hidden" name="add_prev" value="true"> 
+                <button name="submit">Confirmar</button>
+            </form>
+        </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Frota</th>
+                <th>Horimetro</th>
+                <th>Modelo</th>
+                <th>OS</th>
+                <th>Data</th>
+
+                <th>Hora de preventiva</th>
+
+                <th>Componentes</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for preventiva in preventivas %}
+                <tr>
+                    <td id="frota">{{ preventiva.frota }}</td>
+                    <td>{{ preventiva.horimetro }}</td>
+                    <td>{{ preventiva.modelo }}</td>
+                    <td>{{ preventiva.OS }}</td>
+                    <td>{{ preventiva.data}}</td>
+
+                    <td>{{ preventiva.HoradePreventiva }}</td>
+                    
+                    <td class="lista-pecas">
+                        <details>
+                            <summary>Pecas:</summary>
+                            <ul>
+                                {% for peca in preventiva.pecas.all %}
+                                    <li class="itens">
+                                        {{ peca.nome }}{% if not forloop.last %} {% endif %}
+                                    </li>
+                                  {% endfor %}
+  
+                            </ul>
+                        </details>
+                     
+              
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Nenhuma preventiva cadastrada para esta máquina.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    </body>
+    <script>
+        // FORMULÁRIO DE DINAMICO
+        document.getElementById('toggleFormButton').addEventListener('click', function() {
+            var formContainer = document.getElementById('prevFormContainer');
+            if (formContainer.style.display === 'none') {
+                formContainer.style.display = 'block';
+                this.textContent = 'Cancelar';
+            } else {
+                formContainer.style.display = 'none';
+                this.textContent = 'Adicionar Relatorio';
+            }
+        });
+
+        // INPUT SEMPRE COM VALOR DA FROTA
+
+        var input = document.getElementById('id_frota')
+        var frota = document.getElementById('frota')
+        setInterval(function(){
+            var fr = parseInt(frota.textContent, 10)
+            input.value = fr
+            document.getElementById('id_frota').style.display = 'none';
+        },700)
+
+    </script>
+    </html>
+
+
+{% endblock content %}

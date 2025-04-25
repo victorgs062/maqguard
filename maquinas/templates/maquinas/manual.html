@@ -1,0 +1,29 @@
+{% extends 'maquinas/nav.html' %}
+
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/manual.css' %}">
+    <title>Gerenciamento de Maquinas</title>
+</head>
+<body>
+    <div class="texto-equipe">
+        <p><h1>Gerenciamento de Maquinas</h1></p> <!-- Título principal -->
+        <p>O Programa Gerenciamento de Máquinas é um projeto que teve início em agosto de 2024, que tem como objetivo principal gerenciar preventivas de máquinas pesadas e veículos. A ideia de desenvolver esse projeto surgiu entre colegas da faculdade, que hoje conseguiram estruturar uma equipe de extrema qualidade para desenvolver o projeto.</p>
+        <p>Para acessar o manual de uso <a href="https://drive.google.com/file/d/1XUIjr3T0wWjy87KClGKAzn8W395YPdgT/view?usp=drive_link">clique aqui</a>.</p>
+        <h2>Equipe</h2>
+        <ul>
+            <li>- Victor GS</li>
+            <li>- Valter Menezes</li>
+            <li>- João Pedro</li>
+            <li>- Allysson</li>
+        </ul>
+    </div>
+</body>
+</html>
+{% endblock content %}

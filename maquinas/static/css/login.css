@@ -1,0 +1,206 @@
+/* Manter as configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #3C3C3C;
+    color: rgb(218, 218, 218);
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Estilo do título */
+h1.titulo-principal {
+    color: #dbdbdb;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+/* Estilo do container do formulário */
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #393939;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* Estilo geral da navbar */
+.navbar {
+    background-color: #333;  /* Cor de fundo escura */
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;  /* Fixa a navbar no topo */
+    top: 0;  /* Posiciona no topo da página */
+    left: 0;  /* Garante que fique alinhada à esquerda */
+    z-index: 1000;  /* Garante que a navbar fique acima de outros elementos */
+}
+
+/* Conteúdo dentro da navbar */
+.navbar-content {
+    text-align: center;
+}
+
+/* Estilo do título na navbar */
+.navbar-content h1 {
+    color: #e3e3e3;  /* Cor do texto */
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+}
+
+/* Campos de entrada */
+.input-field {
+    text-align: left;
+    margin-top: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #dbdbdb;
+    font-size: 16px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #474747;
+    border-radius: 5px;
+    background-color: #474747;
+    color: #cacaca;
+    margin-top: 5px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #474747;
+    outline: none;
+    background-color: #686868;
+}
+
+/* Estilo do botão ENTRAR */
+button.btn-entrar {
+    background-color: #59a568;
+    color: hsl(0, 0%, 95%);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-top: 10px;
+    width: auto;  /* Ajusta para o tamanho do conteúdo */
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    display: inline-block;
+}
+
+button.btn-entrar:hover {
+    background-color: rgb(97, 153, 109);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form p {
+    margin: 10px 0;
+}
+
+/* Estilo do link "Esqueceu sua senha?" */
+.forgot-password-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #dedede;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo do painel de "Esqueceu sua senha?" */
+.forgot-password-panel {
+    display: none;
+    background-color: #393939;
+    color: #dbdbdb;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .titulo-principal {
+        font-size: 18px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input, select, textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button.btn-entrar {
+        width: 100%;  /* Faz o botão ocupar toda a largura em telas pequenas */
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .forgot-password-link {
+        font-size: 14px;
+    }
+
+    .forgot-password-panel {
+        font-size: 14px;
+    }
+
+    .navbar-content h1 {
+        font-size: 20px;  /* Ajuste do tamanho do texto em telas menores */
+    }
+}
+
+
+/* Media Query para telas muito pequenas (celulares em modo retrato) */
+@media (max-width: 480px) {
+    .titulo-principal {
+        font-size: 16px;
+    }
+
+    input, select, textarea {
+        font-size: 12px;
+    }
+
+    button.btn-entrar {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .forgot-password-panel {
+        font-size: 12px;
+    }
+}

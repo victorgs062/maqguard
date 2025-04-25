@@ -1,0 +1,96 @@
+/* Navbar */
+nav {
+    background-color: #353535;
+    padding: 10px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-left ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left li {
+    margin: 0 10px;
+}
+
+.navbar-text {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+.navbar-logo {
+    margin-left: auto; /* Move a logo para o lado direito */
+}
+
+.logo-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.navbar-text:hover {
+    color: #64AC72; /* Cor ao passar o mouse */
+}
+
+nav a {
+    text-decoration: none;
+    color: white; /* Texto branco */
+    padding: 10px 15px; /* Espaçamento interno */
+    border-radius: 5px; /* Cantos arredondados */
+    display: block; /* Faz com que o link ocupe toda a área do item */
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+}
+
+/* Estrutura de altura total */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contêiner principal para conteúdo e footer */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1; /* Expande para ocupar o espaço disponível */
+    padding: 20px; /* Espaçamento interno opcional */
+}
+
+footer {
+    background-color: #333;
+    color: rgb(218, 218, 218);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .developer-info {
+    margin-bottom: 10px;
+  }
+  
+  .developer-info p {
+    margin: 5px 0;
+
+    color: #ddd;
+  }
+  

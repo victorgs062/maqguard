@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #3C3C3C;
+    color: rgb(218, 218, 218);
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 90%; /* Ajusta a largura conforme a resolução */
+    max-width: 400px;
+    padding: 20px;
+    background-color: #393939;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin: auto; /* Centraliza o container */
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #dbdbdb;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #474747;
+    border-radius: 5px;
+    background-color: #474747;
+    color: #cacaca;
+    margin-top: 10px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #474747;
+    outline: none;
+    background-color: #686868;
+}
+
+button {
+    background-color: #59a568;
+    color: hsl(0, 0%, 95%);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-top: 10px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+button:hover {
+    background-color: rgb(97, 153, 109);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form p {
+    margin: 10px 0;
+}
+
+.titulo-principal {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: 300;
+    color: #dbdbdb;
+    text-align: left;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-principal .texto-normal {
+    margin-right: 4px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+.texto-normal {
+    color: #dbdbdb;
+}
+
+.texto-verde {
+    color: #64AC72;
+}
+
+/* Para navegadores WebKit (Chrome, Safari, Opera) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    appearance: none; /* Alternativa ao -webkit-appearance */
+    margin: 0;
+}
+
+/* Para Firefox */
+input[type="number"] {
+    appearance: textfield; /* Alternativa ao -moz-appearance */
+}
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* Ajusta o container para ocupar toda a largura */
+        margin: 0 auto; /* Centraliza */
+        padding: 15px;
+    }
+
+    .titulo-principal {
+        font-size: 18px;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px;
+    }
+}

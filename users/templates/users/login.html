@@ -1,0 +1,29 @@
+
+    
+{% load   static %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}">
+
+
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p  }} 
+
+        <button name="submit">Entrar</button>
+        <input type="hidden" name="next" value="{% url 'index' %}"/>
+    </form>
+    <script>
+        // PEGA OS VALORES DO CAMPO DE INPUT
+        var login = document.querySelector('#id_username')
+        var senha = document.querySelector('#id_password')
+
+        // DEFINE UM TEMPO DE 1 SEGUNDO PARA LIMPAR OS CAMPOD DE FROTA E HORIMETRO APÓS CARREGAR A PÁGINA
+        setTimeout(function(){
+            login.value = ''
+            senha.value = ''
+        }, 600)
+    </script>
+
+{% endblock content %}

@@ -1,0 +1,83 @@
+{% extends 'maquinas/nav.html' %}
+
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/equipe.css' %}">
+    <title>Registrar usuário</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo-principal">
+            <img src="{% static 'icons/usuario.svg' %}" alt="Ícone de usuário" class="icon">
+            <span class="texto-normal">Registrar</span> <span class="texto-verde">Usuário</span>
+        </h1>
+        <form method="post" action="{% url 'equipe' %}" class="form-container">
+            {% csrf_token %}
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirm_password">Confirmar Senha:</label>
+            <input type="password" id="confirm_password" name="password2" required>
+            
+            <label for="account_type">Tipo de Conta:</label>
+            <select id="account_type" name="account_type" required>
+                <option value="usuario">Mecanico</option>
+                <option value="superusuario">Administrador</option>
+            </select>
+            
+            <button type="submit">Confirmar</button>
+        </form>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>TIPO</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.username }}</td>
+                    <td>
+                        {% if usuario.is_superuser %}
+                            Administrador
+                        {% else %}
+                            Mecanico
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'deletar_usuario' usuario.id %}">
+                            <img src="{% static 'icons/deletar.svg' %}" alt="Excluir">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>    
+</body>
+</html>
+{% endblock content %}

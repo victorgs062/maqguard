@@ -1,0 +1,143 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #3C3C3C; /* Fundo escuro */
+    color: #ebebeb; /* Texto claro */
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: #d1d1d1; /* Verde suave */
+    margin-bottom: 10px;
+    margin: 20px;
+    font-weight: 300; /* Torna a fonte mais fina */
+}
+
+form {
+    margin: 20px;
+    background-color: #333; /* Fundo escuro */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px #333;
+}
+
+/* Para navegadores WebKit (Chrome, Safari, Opera) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    appearance: none; /* Alternativa ao -webkit-appearance */
+    margin: 0;
+}
+
+/* Para Firefox */
+input[type="number"] {
+    appearance: textfield; /* Alternativa ao -moz-appearance */
+}
+
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #474747; /* Bordas verdes */
+    border-radius: 5px;
+    background-color: #474747; /* Fundo escuro */
+    color: #FEFEFE; /* Texto claro */
+    margin-top: 10px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+label {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    color: #cecece;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #474747; /* Verde ao focar */
+    background-color: #686868; /* Fundo escuro ao focar */
+    outline: none; /* Remove a borda de foco branca do navegador */
+}
+
+button {
+    background-color: #64AC72; /* Azul escuro */
+    color: #f8f8f8;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-top: 30px;
+}
+
+button:hover {
+    background-color: #70bb7f; /* Azul mais escuro ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    margin: 20px;
+    width: 98%;
+    border-collapse: collapse;
+    background-color: #393939; /* Fundo da tabela */
+    color: #FEFEFE; /* Texto claro */
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    font-weight: 300; /* Torna a fonte mais fina */
+}
+
+th {
+    background-color: #444; /* Cabeçalho escuro */
+    color: #FEFEFE; /* Texto claro */
+    
+}
+
+#toggleFormButton {
+    margin: 20px;
+}
+
+.maquina {
+    font-size: 25px;
+    text-align: left;
+}
+
+.faltam, .passou {
+    font-size: 20px;
+    color: #cacacaea; /* Vermelho suave */
+}
+
+.mensagem {
+    font-size: 22px;
+    font-weight: 300;
+
+}
+
+.lista-pecas {
+    width: 500px;
+    background-color: #393939; /* Fundo da tabela */
+    color: #FEFEFE; /* Texto claro */
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.lista-pecas, ul {
+    list-style: none;
+}
+
+.lista-pecas:hover {
+    cursor: pointer;
+}
+
+.titulos {
+    width: 100%;
+    text-align: center;
+    color: #dbdbdb; /* Verde */
+}

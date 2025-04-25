@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #3C3C3C;
+    color: #dadada;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos existentes */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Ajuste para a página de nome da equipe */
+.nome-equipe-container {
+    flex: 1; /* Faz o conteúdo da equipe ocupar o espaço disponível */
+    padding: 20px;
+    margin-top: 50px; /* Distância do topo, para não ficar colado no nav */
+    padding-bottom: 20px; /* Garantir um pequeno espaço para o footer */
+    overflow: hidden; /* Evita que o conteúdo ultrapasse o limite */
+}
+
+.texto-equipe {
+    position: relative; /* Não usar absolute para que não sobreponha outros elementos */
+    color: #bbbbbb;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    max-width: 1200px;
+    margin-bottom: 100px; /* Ajuste para que a área de texto não sobreponha o footer */
+}
+
+/* Restante do seu CSS (sem alterações) */
+.texto-equipe ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.texto-equipe li {
+    margin-bottom: 5px;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+a {
+    color: #64AC72;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #45a049;
+}
+
+h1, h2 {
+    font-family: Arial, sans-serif;
+    color: #f8f8f8;
+    font-weight: 300;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.texto-equipe p {
+    font-family: Arial, sans-serif;
+    color: #bbbbbb;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.texto-equipe p:last-child {
+    margin-bottom: 20px;
+}
+
+.texto-equipe h2 {
+    margin-top: 20px;
+}
+
+/* Responsividade para dispositivos menores */
+
+@media (max-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+
+    .texto-equipe {
+        top: 120px; /* Ajusta o topo para garantir espaço suficiente */
+        left: 15px;
+        font-size: 14px;
+        padding-bottom: 30px; /* Adiciona mais espaço para o footer */
+    }
+
+    .texto-equipe h1, .texto-equipe h2 {
+        font-size: 20px;
+    }
+
+    .texto-equipe li {
+        font-size: 18px;
+    }
+
+    .texto-equipe p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+
+    .texto-equipe {
+        top: 80px; /* Ajusta para telas menores */
+        left: 10px;
+        font-size: 12px;
+        padding-bottom: 40px; /* Mais espaço para footer */
+    }
+
+    .texto-equipe h1, .texto-equipe h2 {
+        font-size: 18px;
+    }
+
+    .texto-equipe li {
+        font-size: 16px;
+    }
+
+    .texto-equipe p {
+        font-size: 18px;
+    }
+}

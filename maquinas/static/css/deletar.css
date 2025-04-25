@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #3C3C3C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+}
+
+.deletar_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;  /* Cor de fundo solicitada */
+    padding: 40px 50px;
+    text-align: center;
+    width: 700px; /* Largura do painel */
+    min-height: 250px;
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.deletar_form h2 {
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para o texto escuro */
+.texto-escuro {
+    color: #2C2C2C; /* Cor escura para o "Tem certeza?" */
+}
+
+/* Estilo para o texto mais claro */
+.texto-claro {
+    color: #353535; /* Cor mais clara para o "Deseja excluir a máquina?" */
+    font-size: 20px;
+}
+
+/* Estilo para a imagem da lixeira */
+.lixeira-icon {
+    width: 100px; /* Tamanho da imagem (largura) */
+    height: 100px; /* Tamanho da imagem (altura) */
+    margin-bottom: 20px; /* Espaço entre a imagem e o texto */
+}
+
+/* Estilos dos botões */
+button {
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 15px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.deletar_btn {
+    background-color: rgb(218, 41, 41);
+    color: #f1f1f1;
+    margin-right: 10px; /* Espaço entre os botões */
+    width: auto; /* Ajusta a largura do botão */
+}
+
+.cancelar_btn {
+    background-color: rgb(148, 148, 148);
+    color: #f1f1f1;
+    width: auto; /* Ajusta a largura do botão */
+}
+
+/* Contêiner para os botões */
+.botoes-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px; /* Espaço superior */
+}

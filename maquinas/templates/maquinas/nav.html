@@ -1,0 +1,45 @@
+{% load static %}
+<link rel="icon" type="image/svg+xml" href="{% static 'icons/logo.svg' %}">
+
+<!-- Navbar -->
+<nav>
+    <div class="navbar-left">
+        <ul>
+            <li><a href="{% url 'index' %}" class="navbar-text">Inicio</a></li>
+            <li><a href="{% url 'manual' %}" class="navbar-text">Sobre</a></li>
+            {% if perms.maquinas.add_adicionarmaquina %}
+            <li><a href="{% url 'equipe' %}" class="navbar-text">Equipe</a></li>
+            {% endif %}  
+        </ul>
+    </div>
+    <div class="navbar-logo">
+        <a href="{% url 'index' %}">
+            <img src="{% static 'icons/logo.svg' %}" alt="Logo" class="logo-icon" loading="lazy">
+        </a>
+    </div>
+</nav>
+
+<!-- Contêiner principal da página -->
+<div class="page-container">
+    <div class="main-content"> 
+        <!--Conteúdo principal da página-->
+        {% block content %}
+        {% endblock content %}
+    </div> 
+
+    <!-- Footer no final da página -->
+    <footer>
+        <div class="footer-content">
+          <div class="developer-info">
+            <p>@victorgs062 FrontEnd Developer</p>
+            <p>@valtermenezes BackEnd Developer</p>
+            <p>@joaopedro</p>
+            <p>@allysson</p>
+          </div>
+          <p>© 2024 MaqGuard. Todos os direitos reservados.</p>
+        </div>
+      </footer>      
+      
+</div>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}">

@@ -1,0 +1,28 @@
+{% extends 'maquinas/nav.html' %}
+
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/addmaq.css' %}">
+    <title>Gerenciamento de Maquinas</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo-principal">
+            <img src="{% static 'icons/usuario.svg' %}" alt="Ícone de usuário" class="icon">
+            <span class="texto-normal">Registrar</span> <span class="texto-verde">maquina</span>
+        </h1>        
+        <form method="post" action="{% url 'adicionarMaquina' %}" class="form-container">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">adicionar</button>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock content %}

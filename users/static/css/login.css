@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+form{
+    width: 90%; /* Largura responsiva */
+    max-width: 400px; /* Largura máxima do formulário */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 36%;
+    margin-bottom: 30px;
+}
+
+form, input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #1e3a8a; /* Bordas azuis */
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    margin-top: 10px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+input:focus{
+    border-color: #3b82f6; /* Azul mais claro ao focar */
+    outline: none;
+    background-color: #ffffff; /* Fundo branco ao focar */
+}
+
+button {
+    background-color: #1e3a8a; /* Azul */
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-top: 10px;
+    display: block; /* Botão ocupa toda a largura do formulário */
+    width: 100%; /* Botão ocupa toda a largura do formulário */
+}
+
+button:hover {
+    background-color: #3b82f6; /* Azul mais claro ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,154 @@
+{% extends "maquinas/nav.html" %}
+
+
+{% load static %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gerenciamento de Maquinas</title>   
+      
+        <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+
+    </head>
+    <style>
+
+    </style>
+
+    <body>
+
+        <form action="." method="get" class="pesquisa_form">
+            <a href="{% url 'adicionarMaquina' %}" class="adicionar">+</a>   
+        </form>
+
+        <div class="tabela">
+            <form action="." method="get" class="pesquisa_form">
+                <label for="filtro-maquina">PESQUISAR:</label>
+                <input type="text" id="filtro-maquina" name="query" placeholder="INSIRA A FROTA" value="{{query}}">
+            </form>
+        
+            <table id="tabela-maquinas">
+                <tr>
+                    <th>Frota</th>
+                    <th>Horimetro</th>
+                    <th>Modelo</th>
+                    <th>1º Prev</th>
+                    <th>Prox prev</th>
+                    <th>2º Prev</th>
+                    <th>Prox prev</th>
+                    <th>3º Prev</th>
+                    <th>Prox prev</th>
+                    <th></th>
+                </tr>
+                {% for maquina in page.object_list %}
+                <tr>
+                    <td>
+                        {{maquina.frota}}
+                        <span class="notification-dot" data-maquina-id="{{maquina.id}}"></span>
+                    </td>
+                    <td class="horimetro_atual">{{maquina.horimetro |default:"-"}}</td>
+                    <td>{{maquina.modelo}}</td>
+                    <td class="hora">{{maquina.hora1}}</td>
+                    <td class="primeira_preventiva">{{maquina.hora1 |add:maquina.Primeira}}</td>
+                    <td class="hora">{{maquina.hora2}}</td>
+                    <td class="segunda_preventiva">{{maquina.hora2 |add:maquina.Segunda}}</td>
+                    <td class="hora">{{maquina.hora3|default:"-"}}</td>
+                    <td class="terceira_preventiva">{{maquina.hora3 |add:maquina.Terceira|default:"-"}}</td>
+                    <td class="salvar">
+                        <a href="{% url 'atualizarHor' maq_id=maquina.id %}" class="btn-icon">
+                            <img src="{% static 'icons/caneta.svg' %}" alt="Editar">
+                        </a>
+                        <a href="{% url 'deletar' maquina.id %}" class="btn-icon">
+                            <img src="{% static 'icons/delete.svg' %}" alt="Excluir">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+            {% if no_results %}
+                <p class="erro_maquina">Máquina não cadastrada</p>
+            {% endif %} 
+
+            <div class="pagination">
+                {% if page.has_previous %}
+                    <a href="?page=1">&laquo;</a>
+                    <a href="?page={{ page.previous_page_number }}">&#8249;</a>
+                {% endif %}
+            
+                {% for num in page.paginator.page_range %}
+                    {% if num > page.number|add:'-3' and num < page.number|add:'3' %}
+                        {% if num == page.number %}
+                            <span class="current-page">{{ num }}</span>
+                        {% else %}
+                            <a href="?page={{ num }}&query={{ query }}">{{ num }}</a>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            
+                {% if page.has_next %}
+                    <a href="?page={{ page.next_page_number }}">&#8250;</a>
+                    <a href="?page={{ page.paginator.num_pages }}">&raquo;</a>
+                {% endif %}
+            </div>
+            
+    </body>
+    <Script>
+        // PONTO DE NOTIFICAÇÃO
+        var hr = document.querySelectorAll('.horimetro_atual')
+        var pr = document.querySelectorAll('.primeira_preventiva')
+        var sg = document.querySelectorAll('.segunda_preventiva')
+        var tr = document.querySelectorAll('.terceira_preventiva')
+
+
+        for(let i = 0; i < hr.length; i++){
+            var horimetro = parseInt(hr[i].textContent, 10)
+            var primeira = parseInt(pr[i].textContent, 10)
+            var segunda = parseInt(sg[i].textContent, 10)  
+            var terceira = parseInt(tr[i].textContent, 10) 
+
+            if (isNaN(horimetro)) continue;
+           
+            if(horimetro >= terceira){
+                // tr[i].style.backgroundColor = 'red';
+                // hr[i].style.backgroundColor = 'red';       
+                document.querySelectorAll('.notification-dot')[i].style.display = 'inline-block';
+            }else if(horimetro >= segunda){
+                // sg[i].style.backgroundColor = 'red';       
+                // hr[i].style.backgroundColor = 'red';       
+                document.querySelectorAll('.notification-dot')[i].style.display = 'inline-block';
+            }else if(horimetro >= primeira){
+                // pr[i].style.backgroundColor = 'red';       
+                // hr[i].style.backgroundColor = 'red';    
+                document.querySelectorAll('.notification-dot')[i].style.display = 'inline-block';
+   
+            }
+        }
+
+
+
+        //FILTRO DE MÁQUINAS
+        // document.getElementById('filtro-maquina').addEventListener('input', function(){
+        //     var input = this.value.toLowerCase();
+        //     var linhas = document.querySelectorAll('#tabela-maquinas tr');
+
+        //     linhas.forEach(function(linhas, index){
+        //         if(index === 0) return; 
+
+        //         var frota = linhas.cells[0].textContent.toLowerCase();
+
+        //         if(frota.includes(input)){
+        //             linhas.style.display = ''
+        //         }else{
+        //             linhas.style.display = 'none'
+        //         }
+        //     })
+        // })
+    </Script>
+    </html>
+
+{% endblock content %}
+
